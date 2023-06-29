@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:food_delivery_app/data/data.dart';
+import 'package:food_delivery_app/screens/cart_screen.dart';
 import 'package:food_delivery_app/screens/restaurant_screen.dart';
 import 'package:food_delivery_app/widgets/rating_stars..dart';
 import 'package:food_delivery_app/widgets/recent_orders.dart';
@@ -25,7 +26,7 @@ class HomeScreen extends StatelessWidget {
             },));
           },
           child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+          margin:const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(15.0),
@@ -49,7 +50,7 @@ class HomeScreen extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.all(12.0),
+                  margin:const EdgeInsets.all(12.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -92,7 +93,11 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Food Delivery'),
         actions: [
           TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return CartScreen();
+                },));
+              },
               child: Text(
                 'Cart (${currentUser.cart.length})',
                 style: TextStyle(fontSize: 14, color: Colors.grey[50]),
@@ -102,10 +107,10 @@ class HomeScreen extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: EdgeInsets.all(20.0),
+            padding:const EdgeInsets.all(20.0),
             child: TextField(
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(vertical: 15.0),
+                contentPadding:const EdgeInsets.symmetric(vertical: 15.0),
                 fillColor: Colors.white,
                 filled: true,
                 border: OutlineInputBorder(
@@ -132,7 +137,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
              const Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                padding:  EdgeInsets.symmetric(horizontal: 20.0),
                 child: Text(
                   'Nearby Restaurant',
                   style: TextStyle(
