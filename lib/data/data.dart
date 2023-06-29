@@ -78,7 +78,7 @@ final List<Restaurant> restaurants = [
 ];
 
 // User
-final currentUser = User(
+var currentUser = User(
   name: 'Rebecca',
   orders: [
     Order(
